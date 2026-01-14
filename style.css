@@ -1,0 +1,353 @@
+/* Reset & base */
+:root {
+    --bg1: #FFDEE9;
+    --bg2: #B5FFFC;
+    --card: #FFFFFF;
+    --accent: #FF6B9A;
+    --muted: #6B6B6B;
+    --glass: rgba(255, 255, 255, 0.6);
+}
+
+* {
+    box-sizing: border-box
+}
+
+html,
+body {
+    height: 100%;
+}
+
+/* prefer native smooth scrolling where available */
+html { scroll-behavior: smooth; }
+
+body {
+    margin: 0;
+    font-family: 'Nunito', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    background: linear-gradient(135deg, var(--bg1), var(--bg2));
+    display: flex;
+    /* align to top so scrolling to 0 lands content at the very top across devices */
+    align-items: flex-start;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 2rem;
+    color: #222;
+}
+
+/* top anchor used for precise snap-to-top when auto-scrolling */
+.top-anchor{
+    height: 0;
+    display: block;
+    scroll-snap-align: start;
+} 
+
+.page {
+    max-width: 900px;
+    width: 100%
+}
+
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem 0
+}
+
+.title {
+    font-family: 'Comfortaa', cursive;
+    font-size: 2.1rem;
+    margin: 0;
+    text-align: center;
+    color: var(--accent);
+    text-shadow: 0 4px 18px rgba(0, 0, 0, 0.08)
+}
+
+.subtitle {
+    margin: 0.25rem 0 0;
+    text-align: center;
+    color: var(--muted)
+}
+
+.card {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.9), var(--card));
+    border-radius: 18px;
+    padding: 1.6rem;
+    margin-top: 1.2rem;
+    box-shadow: 0 10px 30px rgba(15, 15, 15, 0.08);
+    backdrop-filter: blur(6px)
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between
+}
+
+.card-header h2 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #333
+}
+
+.btn-emoji {
+    background: transparent;
+    border: none;
+    font-size: 1.4rem;
+    cursor: pointer
+}
+
+.letter {
+    margin-top: 1rem;
+    line-height: 1.6;
+    color: #2a2a2a
+}
+
+.lead {
+    font-weight: 600;
+    margin: 0 0 0.5rem
+}
+
+.closing {
+    font-style: italic;
+    margin-top: 0.6rem
+}
+
+.signature {
+    margin-top: 0.8rem;
+    color: var(--muted);
+    font-size: 0.95rem
+}
+
+.card-actions {
+    display: flex;
+    gap: 0.6rem;
+    margin-top: 1rem
+}
+
+.btn {
+    padding: 0.6rem 0.9rem;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    background: var(--glass);
+    cursor: pointer;
+    font-weight: 600
+}
+
+.btn.primary {
+    background: var(--accent);
+    color: white;
+    border: none;
+    box-shadow: 0 6px 18px rgba(255, 107, 154, 0.18)
+}
+
+.btn.outline {
+    background: transparent;
+    border: 1px dashed rgba(0, 0, 0, 0.08)
+}
+
+.secret {
+    margin-top: 1rem;
+    padding: 0.9rem;
+    border-radius: 12px;
+    background: linear-gradient(90deg, rgba(255, 240, 245, 0.7), rgba(240, 255, 255, 0.6));
+    border: 1px solid rgba(255, 107, 154, 0.06)
+}
+
+.hidden {
+    display: none
+}
+
+.footer {
+    text-align: center;
+    padding: 1rem 0;
+    color: var(--muted);
+    font-size: 0.95rem
+}
+
+/* small cute heart animation */
+.heart {
+    width: 28px;
+    height: 28px;
+    display: inline-block;
+    margin-left: 6px;
+    transform-origin: center;
+    transition: transform .28s ease
+}
+
+.heart.pop {
+    transform: scale(1.3) rotate(-10deg)
+}
+
+/* helper: force top alignment on small viewports (used temporarily when auto-revealing)
+   - using a class avoids conflicts and makes the behavior reversible */
+/* previously handled temporary top-alignment via .anchored-top — removed to avoid interfering with natural scrolling */
+
+/* responsive */
+@media (max-width:640px) {
+    .title {
+        font-size: 1.6rem
+    }
+
+    .card {
+        padding: 1.1rem;
+        border-radius: 14px
+    }
+
+    .btn {
+        padding: 0.5rem 0.75rem
+    }
+}
+
+/* print-friendly */
+@media print {
+    body {
+        background: white;
+        color: black
+    }
+
+    .card {
+        box-shadow: none;
+        border: 1px solid #eee
+    }
+}
+
+/* --- Game overlay styles --- */
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(rgba(8, 6, 10, 0.6), rgba(8, 6, 10, 0.4));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100000;
+    padding: 1rem;
+    transition: opacity .28s ease, transform .28s ease;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto
+}
+
+.overlay.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: scale(.98)
+}
+
+.overlay.shake {
+    animation: shake .42s
+}
+
+@keyframes shake {
+    0% {
+        transform: translateX(0)
+    }
+
+    20% {
+        transform: translateX(-8px)
+    }
+
+    60% {
+        transform: translateX(6px)
+    }
+
+    100% {
+        transform: translateX(0)
+    }
+}
+
+/* small button shake for locked reveal hint */
+@keyframes btnShake {
+    0%{ transform: translateX(0); }
+    20%{ transform: translateX(-6px); }
+    60%{ transform: translateX(5px); }
+    100%{ transform: translateX(0); }
+}
+
+.btn.shake {
+    animation: btnShake .42s ease;
+}
+.overlay-card {
+    background: var(--card);
+    padding: 1.2rem;
+    border-radius: 14px;
+    max-width: 640px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 18px 40px rgba(9, 7, 15, 0.35);
+    pointer-events: auto;
+    position: relative;
+    z-index: 100001
+}
+
+.overlay-card h2 {
+    margin: 0 0 0.25rem;
+    font-family: 'Comfortaa', cursive;
+    color: var(--accent)
+}
+
+.game-info {
+    color: #333;
+    font-weight: 700;
+    margin-bottom: 0.6rem
+}
+
+.playfield {
+    position: relative;
+    min-height: 160px;
+    background: linear-gradient(180deg, rgba(255, 250, 250, 0.6), rgba(250, 255, 255, 0.6));
+    border-radius: 10px;
+    padding: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+    justify-content: center
+}
+
+.game-heart {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--accent);
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    transform: scale(0);
+    animation: popIn .18s forwards
+}
+
+@keyframes popIn {
+    to {
+        transform: scale(1)
+    }
+}
+
+.game-controls {
+    margin-top: 0.8rem;
+    display: flex;
+    gap: 0.6rem;
+    justify-content: center
+}
+
+.hint {
+    margin-top: 0.6rem;
+    color: var(--muted);
+    font-size: 0.95rem
+}
+
+/* adjust playfield on small screens */
+@media (max-width:480px) {
+    .playfield {
+        min-height: 120px;
+        padding: 8px
+    }
+
+    .game-heart {
+        width: 46px;
+        height: 46px
+    }
+}

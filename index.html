@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Thanks mature suwun</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;600&family=Nunito:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="gameOverlay" class="overlay" role="dialog" aria-modal="true" aria-label="Permainan Kunci">
+    <div class="overlay-card">
+      <h2>Permainan Kunci 🎮</h2>
+      <p>Selesaikan satu level kecil untuk membuka surat terima kasih.</p>
+      <div class="game-area" id="gameArea">
+        <div class="game-info">
+          Skor: <strong id="score">0</strong> / <strong id="target">5</strong> ❤️
+          <span class="sep">•</span>
+          Waktu: <strong id="timer">15</strong>s
+        </div>
+        <div id="playfield" class="playfield" aria-live="polite"></div>
+        <div class="game-controls">
+          <button id="startGame" class="btn primary">Mulai</button>
+          <button id="resetGame" class="btn outline">Reset</button>
+        </div>
+        <p class="hint">Klik hati yang muncul sebanyak <strong>5</strong> kali sebelum waktu habis!</p>
+      </div>
+    </div>
+  </div>
+
+  <main class="page" aria-hidden="true">
+    <div id="topAnchor" class="top-anchor" aria-hidden="true"></div>
+    <header class="hero">
+      <div class="hero-inner">
+        <h1 class="title">For Firlii💖💖 yang wangiii dan cantiik banget💖💖💖 walau tanpa make up, dan kalo makee make-up on point buanget💖</h1>
+        <p class="subtitle">Makasiih udah nerima barang yang gw kasih walaupun sederhana, gw harap lu suka yaa💖💖. sekarang tolong di bacaa surat kecil ini.</p>
+      </div>
+    </header>
+
+    <section class="card" aria-labelledby="letter-title">
+      <div class="card-header">
+        <h2 id="letter-title">Untuuk Firlii💖💖</h2>
+        <button id="cuteToggle" class="btn-emoji" aria-pressed="false">✨</button>
+      </div>
+
+      <article class="letter">
+        <p class="lead">Hai firlii💖,</p>
+        <p>Makasih ya udah mau ngehargain gw selama ini, disini gw mau bilang dikit, karena gw udah sesuai dengan kata-kata gw(gak lama ketemu nya) tapi kamu harus baca—ini</p>
+        <p>Langsung aja ya ke point nya, gw sekarang udah paham kok, mungkin gw udah bukan lagi orang yang lu mau, gw udah mulai di jadiin closur semenjak waktu itu sebelum putus, dan api harus gw mulu yang pulihin. terserah si sebenernya gw udh paham kokk kalo cinta itu ga harus bikin api di tiktok dan harus chat setiap saat apalagi kita udahan. 
+            mungkin lu sekarang ngira gw yang cintanya tadi dari 100% ke 0% itu udah mulai ke 0, padahal mah ngg, gw cuman sadar kalo di awal emosional dependency gw aja yang over, dan menghasilkan attachment anxierty dan gw manjadi haus—validasi aja sama lu. ya gw juga sadar kalo udahan ngapain di chatin lagi, tapi buat apa gw lakuin kalo bukan karena 
+            gw masih ada buat lu(masih 100%). <br>sekarang gw cuma ngontrol attachment anxiety gw, gw gaboleh kehilangan diri gw yang tiap malem biasanya belajar, wlaupun bukan pelajaran sekolah. harus konsisten lagi. Oh ya mungkin karena ini malam, jadi pikiran gw takut kemana-mana. intinya gw gmau nyalahin lu, atau lu udah ad pengganti "mybe" gw 
+            ngelakuin ini semua karena gw mau liat lu tersenyum doang, gabanyak kok. dah yaa, gw gmau ganggu belajar u lagi, gw kan udah bukan yang lu mau(yakann) <br> Seakarang gw masih 100% buat lu sebenernya, cuma caranya aja yang berbeda. Mungkin suatu saat nanti bebas lu mau bilang web kek ginian jamet atau apa, lupain aja omongan gw yang ga jelas, 
+            terus gausah buka dm an ig gw juga gppa kan, udah ya aku mau fokus snbt, aku juga sebenernya malu kalo deketin kamu, tapi akau aja gak kuliah negri, atau gak kuliah sama sekali after ulus man.</p>
+        <p class="closing">I hope life treats you better than some people ever did.
+Semoga setiap hari dan setiap detiknya kamu dikelilingi hal-hal baik — bukan yang datang cuma buat main-main lalu ninggalin luka.  <br>
+Nggak ada lagi yang jail, yang bikin kamu nangis, atau yang sok manis tapi malahan nggak jelas. <br>
+Dijauhin dari ibu-ibu sen kanan belok kiri, dari musang berkedok perhatian, dan dari semua yang bikin kamu lupa harga diri sendiri.
+Take care.
+Babai, my ex.</p>
+        <p class="signature">— Dari gw syadan</p>
+      </article>
+
+      <div class="card-actions">
+        <button id="revealBtn" class="btn primary" aria-pressed="false">Love</button>
+        <button id="shareBtn" class="btn outline">Simpan / Cetak</button>
+      </div>
+
+      <div id="secret" class="secret hidden" aria-hidden="true">
+        <p>Gw masih disini mengagumi lu dan gw selalu berharap yang terbaik buat luu semangaat teruus yaa belajaar nyaa imuupp 💌</p>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>Jaga dirimu baik-baik firlii💖💖. 🌷</p>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
